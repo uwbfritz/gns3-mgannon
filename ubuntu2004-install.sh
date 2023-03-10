@@ -59,3 +59,5 @@ function main(){
   gns3install
   echo "Server installed. Type 'gns3' to start the GUI"
 }
+
+main
