@@ -48,39 +48,39 @@ function baseconfig(){
 }
 
 function gns3build(){
-# GNS3 Src
-mkdir ~/gns3
-cd ~/gns3 || exit
-git clone https://github.com/GNS3/gns3-server.git
-git clone https://github.com/GNS3/gns3-gui.git
-git clone https://github.com/GNS3/vpcs.git
-git clone https://github.com/GNS3/dynamips.git
-git clone https://github.com/GNS3/ubridge.git
+    # GNS3 Src
+    mkdir ~/gns3
+    cd ~/gns3 || exit
+    git clone https://github.com/GNS3/gns3-server.git
+    git clone https://github.com/GNS3/gns3-gui.git
+    git clone https://github.com/GNS3/vpcs.git
+    git clone https://github.com/GNS3/dynamips.git
+    git clone https://github.com/GNS3/ubridge.git
 
-cd ~/gns3/gns3-server/ || exit
-pip3 install -r requirements.txt
-python3 setup.py install
+    cd ~/gns3/gns3-server/ || exit
+    pip3 install -r requirements.txt
+    python3 setup.py install
 
-cd ~/gns3/gns3-gui/ || exit
-pip3 install -r requirements.txt
-python3 setup.py install
-cp resources/linux/applications/gns3.desktop /usr/share/applications/
-cp -R resources/linux/icons/hicolor/ /usr/share/icons/
+    cd ~/gns3/gns3-gui/ || exit
+    pip3 install -r requirements.txt
+    python3 setup.py install
+    cp resources/linux/applications/gns3.desktop /usr/share/applications/
+    cp -R resources/linux/icons/hicolor/ /usr/share/icons/
 
-cd ~/gns3/vpcs/src || exit
-./mk.sh
-cp vpcs /usr/local/bin/vpcs
+    cd ~/gns3/vpcs/src || exit
+    ./mk.sh
+    cp vpcs /usr/local/bin/vpcs
 
-cd ~/gns3/dynamips/ || exit
-mkdir build 
-cd build/ || exit
-cmake ..
-make
-make install
+    cd ~/gns3/dynamips/ || exit
+    mkdir build 
+    cd build/ || exit
+    cmake ..
+    make
+    make install
 
-cd ~/gns3/ubridge || exit
-make
-make install
+    cd ~/gns3/ubridge || exit
+    make
+    make install
 
 }
 
