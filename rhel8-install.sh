@@ -12,6 +12,7 @@
 
 function preflight(){
     # Check if RHEL
+    # shellcheck disable=SC2002
     if [ "$(cat /etc/redhat-release | grep -o 'Red Hat Enterprise Linux')" != "Red Hat Enterprise Linux" ]
         then echo "This script is for RHEL 8"
         exit
