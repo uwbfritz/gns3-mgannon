@@ -11,11 +11,12 @@
 
 
 function preflight(){
-    # Check if RHEL 8
-    if [ "$(lsb_release -rs)" != "8.3" ]
-    then echo "This script is for RHEL 8"
-    exit
+    # Check if RHEL
+    if [ "$(cat /etc/redhat-release | grep -o 'Red Hat Enterprise Linux')" != "Red Hat Enterprise Linux" ]
+        then echo "This script is for RHEL 8"
+        exit
     fi
+
     # Fail if not root
     if [ "$EUID" -ne 0 ]
     then echo "Please run as root"
