@@ -11,17 +11,16 @@
 
 
 function preflight(){
+    # Fail if not root
+    if [ "$EUID" -ne 0 ]
+    then echo "Please run as root"
+    exit
+    fi
     # Check if RHEL
     # shellcheck disable=SC2002
     if [ "$(cat /etc/redhat-release | grep -o 'Red Hat Enterprise Linux')" != "Red Hat Enterprise Linux" ]
         then echo "This script is for RHEL 8"
         exit
-    fi
-
-    # Fail if not root
-    if [ "$EUID" -ne 0 ]
-    then echo "Please run as root"
-    exit
     fi
 }
 

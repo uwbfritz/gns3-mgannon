@@ -10,14 +10,14 @@
 #--------------------------------------------------------------------------------------------------------------------------------
 
 function preflight(){
-  # Check if ubuntu 20.04
-  if [ "$(lsb_release -rs)" != "20.04" ]
-    then echo "This script is for Ubuntu 20.04"
-    exit
-  fi
   # Fail if not root
   if [ "$EUID" -ne 0 ]
     then echo "Please run as root"
+    exit
+  fi
+  # Check if ubuntu 20.04
+  if [ "$(lsb_release -rs)" != "20.04" ]
+    then echo "This script is for Ubuntu 20.04"
     exit
   fi
 }
